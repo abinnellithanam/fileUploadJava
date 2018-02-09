@@ -1,0 +1,7 @@
+.margin-top10 {
+    margin-top: 10px;
+}
+.accountMain tbody tr:hover{
+    cursor: pointer;
+/*    border: 1px solid red !important;*/
+}

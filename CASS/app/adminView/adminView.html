@@ -1,0 +1,55 @@
+<div class="container-fluid playFont">
+    <div class="row">
+        <div class="col-md-12 text-center" style="height: 10vh;background: #2167a0;">
+            <label class="playFont" style="font-size:30px;line-height: 10vh;color: #fff;">MINTOVA</label>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-4 text-left">
+            <b>Welcome</b> {{userTitle}} {{userName}}
+        </div>
+        <div class="col-md-8 text-right" ng-if="isAdmin" >
+            <a ng-href="#/adminTeamCreateView/{{tag}}"><label  style="cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;padding: 10px;">Create Team Member</label></a>
+            <a  ng-href="#/dashboard"><label  style="cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;padding: 10px;">DashBoard</label></a>
+        </div>
+    </div>
+    <div ng-if="isAdmin" class="row" style="margin-top: 20px;">
+        <div class="col-md-12">
+            <table class="table table-striped">
+            <thead style="background: #2167a0;color: white;text-transform: uppercase;">
+                <th>User Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Role</th>
+                <th>Created Date</th>
+                <th></th>
+            </thead>
+                <tbody style="border: 1px solid #2167a0;">
+                    <tr ng-repeat="x in viewUserMap" >
+                        <td>{{x.userId}}</td>
+                        <td>{{x.emailId}}</td>
+                        <td>{{x.firstName+""+x.lastName}}</td>
+                        <td ng-if="x.status==0" style="color: #2167a0;font-weight: bold;">INACTIVE</td>
+                        <td ng-if="x.status==1" style="color: green;font-weight: bold;">ACTIVE</td>
+                        <td ng-if="x.status==-1" style="color: green;font-weight: bold;">BLOCKED</td>
+                        <td ng-if="x.status==-2" style="color: brown;font-weight: bold;">DELETED</td>
+                        <td ng-if="x.role==1">Super Admin</td>
+                        <td ng-if="x.role==2">Admin</td>
+                        <td ng-if="x.role==3">User</td>
+                        <td>{{x.createdDate}}</td>
+                        <td >
+                        <a style="color: #2167a0;cursor: pointer;padding: 10px;" ng-click="editUser(x.userId)" data-userid="{{x.userId}}">EDIT</a><br>
+                        <a style="color: #2167a0;cursor: pointer;padding: 10px;" ng-click="deleteUser(x.userId)" data-userid="{{x.userId}}" ng-if="x.status==1||x.status==0||x.status==-1">REMOVE</a><br>
+                        <a style="color: #2167a0;cursor: pointer;padding: 10px;" ng-click="activateUser(x.userId)" data-userid="{{x.userId}}" ng-if="x.status==0||x.status==-1||x.status==-2">ACTIVATE</a>
+                        <a style="color: #2167a0;cursor: pointer;padding: 10px;" ng-click="inactivateUser(x.userId)" data-userid="{{x.userId}}" ng-if="x.status==1">INACTIVATE</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-if="!isAdmin">
+        <label>Welcome User {{userName}}</label>
+    </div>
+</div>

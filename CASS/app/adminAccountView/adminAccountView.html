@@ -1,0 +1,68 @@
+<div class="container-fluid playFont">
+    
+    <div class="row">
+        <div class="col-md-12 text-center" style="height: 10vh;background: #2167a0;">
+            <label class="playFont" style="font-size:30px;line-height: 10vh;color: #fff;">MINTOVA</label>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-12 text-left" ng-if="isAdmin">
+<!--            <a ng-href="#/user_page"><label  style="cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;padding: 10px;">Create Account</label></a>-->
+            <a ng-href="#/dashboard"><label  style="cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;padding: 10px;">DashBoard</label></a>
+        </div>
+    </div>
+
+    <div class="row accountMain" ng-if="isAdmin" style="margin-top: 20px;">
+        <div class="col-md-12">
+
+
+
+            <div class="row">
+                <p class="lead">Accounts</p>
+            </div>
+            <div class="row">
+                <div class="col-md-8 ">
+                    <div class="col-md-4">
+                        <label for="accntSearch" class="pull-right ">Account</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="search" id="accntSearch" class="form-control pull-left " placeholder="Search accounts..">
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row margin-top10">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sl no.</th>
+                            <th>Account Name</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="accountInfo in accountsInfo">
+                            <td ng-click="accountView(accountInfo.accountId)">{{accountInfo.accountId}}</td>
+                            <td ng-click="accountView(accountInfo.accountId)"><b>{{accountInfo.accountName}}</b></td>
+                            <td ng-click="accountView(accountInfo.accountId)">3</td>
+                            <td ng-click="accountView(accountInfo.accountId)" class="text-danger"><b>Inactive</b></td>
+                            <td><a ng-click="accountView(accountInfo.accountId)">View</a></td>
+                            <td><a ng-click="accountEdit(accountInfo.accountId)">Edit</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="">
+                    <button class="btn btn-info pull-right" type="button" ng-click="addNewAccount()">Add new account</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

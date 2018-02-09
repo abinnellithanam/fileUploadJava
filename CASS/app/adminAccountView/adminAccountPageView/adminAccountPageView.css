@@ -1,0 +1,30 @@
+.nav-pills>li>a.active{
+    border-radius: 0 !important;
+
+}
+.nav-pills>li>a{
+    border:1px solid #d3d3d3 !important;
+     border-radius: 0 !important;
+
+}
+
+.ng-touched.ng-invalid { border: 1px solid red;}
+.ng-touched.ng-valid {border: 1px solid green;}
+.validField{border: 1px solid green;}
+.invalidField{ border: 1px solid red;}
+.tab-content{
+    margin-top: 50px;
+}
+.topMargin5{
+    margin-top: 50px;
+}
+label{
+    color: #337ab7;
+}
+.accBasicProfile label {
+    color: black;
+    font-family: serif;
+}
+.cursorPointer{
+    cursor: pointer;
+}

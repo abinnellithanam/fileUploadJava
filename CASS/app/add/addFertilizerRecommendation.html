@@ -1,0 +1,92 @@
+<div class="container mT90" id="loader-cccc">
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead col-md-6"><u>Add Fertilizer Recommendation</u></p>
+            <div class="form-group col-md-6">
+                <div class="radio" ng-init="addFertRecommMap.isApplyToAllDists=0">
+                    <label class="mR20">
+                        <input type="radio" ng-model="addFertRecommMap.isApplyToAllDists" ng-change="rbtnIsApplyToAllDistsChange(addFertRecommMap)" id="selectedDistricts" value=0 checked>
+                        Selected Districts Only
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="addFertRecommMap.isApplyToAllDists" ng-change="rbtnIsApplyToAllDistsChange(addFertRecommMap)" id="allDistricts" value=1>
+                        All Districts
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mB20">
+            <form>
+                <div class="form-group">
+                    <label for="fertTypeSelector">Fertilizer Type</label>
+                    <select id="fertTypeSelector" class="form-control" ng-change="fertTypeChange(addFertRecommMap)" ng-model="addFertRecommMap.sFertTypeId">
+                    <option value="">Select Fertilizer Type</option>
+                    <option value=1>Organic Carbon</option>
+                    <option value=2>P</option>
+                    <option value=3>K</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="cropSelector">Crop</label>
+                    <select id="cropSelector" ng-model="addFertRecommMap.cropId" ng-change="cropChange(addFertRecommMap)" class="form-control">
+                        <option value="">Select Crop</option>
+                        <option value={{cropMap.cropId}} ng-repeat="cropMap in cropList">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stateSelector">State</label>
+                    <select id="stateSelector" ng-model="addFertRecommMap.stateId" ng-change="stateChange(addFertRecommMap)" class="form-control">
+                        <option value="">Select State</option>
+                        <option value={{stateMap.stateId}} ng-repeat="stateMap in stateList">{{stateMap.stateName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="radio" ng-init="addFertRecommMap.isRfOrIrr=-1">
+                        <div class="">
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="rainfed" value=0>
+                                    Rainfed
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="irrigated" value=1>
+                                    Irrigated
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="none" value=-1>
+                                    none
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="addFertRecommMap.isApplyToAllDists==0">
+                    <label for="districtSelector">District</label>
+                    <select id="districtSelector" ng-model="addFertRecommMap.districtId" ng-change="districtChange(addFertRecommMap)" class="form-control">
+                        <option value="">Select District</option>
+                        <option value="{{districtMap.districtId}}" ng-repeat="districtMap in districtList">{{districtMap.districtName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="yieldTargetSelector">Yield Target</label>
+                    <select id="yieldTargetSelector" ng-model="addFertRecommMap.yieldTargetId" ng-change="yieldTargetMapChange(yieldTargetMap)" class="form-control">
+                        <option value="">Select Yield Target</option>
+                        <option value="{{yieldTargetMap.yieldTargetId}}" ng-repeat="yieldTargetMap in yieldTargetList">{{yieldTargetMap.yieldTarget}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="soilTestRsltSelector">Soil Test Result</label>
+                    <select id="soilTestRsltSelector" ng-model="addFertRecommMap.soilTestResultId"  class="form-control">
+                        <option value="">Select Soil Test Result</option>
+                        <option value="{{soilTestResultMap.soilTestResultId}}" ng-repeat="soilTestResultMap in soilTestResultList">{{soilTestResultMap.soilTestResult}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fertRecommInput">Fertilizer Recommendation</label>
+                    <input type="text" class="form-control" id="fertRecommInput" ng-model="addFertRecommMap.fertRecomm" placeholder="Fertilizer Recommendation">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mB20">
+            <button class="pull-right btn btn-default btn-info" ng-click="addSoilTstRslt(addFertRecommMap)">Fertilizer Recommendation</button>
+        </div>
+    </div>
+</div>

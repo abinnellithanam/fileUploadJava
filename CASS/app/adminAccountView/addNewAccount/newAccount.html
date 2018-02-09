@@ -1,0 +1,50 @@
+<div class="row" ng-show="!isActivated" style="margin-top: 50px;color: #2167a0;">
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <label>Account name</label>
+            <input type="text" placeholder="Account Name" class="form-control" ng-model="accountDetails.accName" required autofocus>
+            <label>Account type</label>
+            <input type="text" placeholder="Account type" ng-model="accountDetails.accTpe" class="form-control" required autofocus>
+            <label>Date of inc.</label>
+            <input type="text" placeholder="Date of inc." ng-model="accountDetails.dateInc" class="form-control" required>
+            <label>PAN</label>
+            <input type="text" placeholder="PAN" class="form-control" ng-model="accountDetails.panNo" required autofocus>
+            <label>CIN</label>
+            <input type="text" placeholder="CIN" ng-model="accountDetails.cinNo" class="form-control" required autofocus>
+            <label>Service Tax Id</label>
+            <input type="text" placeholder="Service Tax Id" ng-model="accountDetails.serTaxId" class="form-control" required>
+            <label>Country of Regn.</label>
+            <select class="form-control" ng-options="id as name for (id, name) in countries" ng-model="accountDetails.countryRegn" ng-change="getState(accountDetails.countryRegn)"></select>
+<!--            <input type="text" placeholder="Country of Regn." ng-model="accountDetails.countryRegn" class="form-control" required>-->
+        </div>
+        <div class="col-md-4">
+            <label>Office Contact #</label>
+            <input type="text" placeholder="Office Contact #" ng-model="accountDetails.officeCntct" class="form-control" required>
+            <label>Address #1</label>
+            <input type="text" placeholder="Address #1" ng-model="accountDetails.add1" class="form-control" required>
+            <label>Address #2</label>
+            <input type="text" placeholder="Address #2" ng-model="accountDetails.add2" class="form-control" required>
+            <label>City</label>
+            <select class="form-control" ng-options="id as name for (id, name) in cities" ng-model="accountDetails.city"></select>
+<!--            <input type="text" placeholder="City" ng-model="accountDetails.city" class="form-control" required>-->
+            <label>State</label>
+            <select class="form-control" ng-options="id as name for (id, name) in states" ng-model="accountDetails.state" ng-change="getCity(accountDetails.state)"></select>
+<!--            <input type="text" placeholder="State" ng-model="accountDetails.state" class="form-control" required>-->
+            <label>Notes</label>
+            <textarea style="height: 15vh;" class="form-control" placeholder="Notes" ng-model="accountDetails.notess" rows="10"></textarea>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 addAccountBtns">
+            <button class="btn btn-info pull-left btn-sm col-md-6" ng-click="addAccount()" ng-if="isAddAccount">Add account</button>
+            <button class="btn btn-info pull-left btn-sm col-md-6" ng-click="updateAccount()" ng-if="!isAddAccount">Update account</button>
+            <button class="btn btn-info pull-right btn-sm col-md-6" ng-href="#/adminAccountView">Back</button>
+        </div>
+    </div>
+</div>

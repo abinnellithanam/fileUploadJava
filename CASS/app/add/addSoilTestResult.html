@@ -1,0 +1,79 @@
+<div class="container mT90" id="loader-cccc">
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead col-md-6"><u>Add Soil Test Result</u></p>
+            <div class="form-group col-md-6">
+                <div class="radio" ng-init="addSoilTstRsltMap.isApplyToAllDists=0">
+                    <label class="mR20">
+                        <input type="radio" ng-model="addSoilTstRsltMap.isApplyToAllDists" id="selectedDistricts" value=0 checked>
+                        Selected Districts Only
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="addSoilTstRsltMap.isApplyToAllDists" id="allDistricts" value=1>
+                        All Districts
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mB20">
+            <form>
+                <div class="form-group">
+                    <label for="fertTypeSelector">Fertilizer Type</label>
+                    <select id="fertTypeSelector" ng-model="addSoilTstRsltMap.sFertTypeId" class="form-control">
+                    <option value=1>Organic Carbon</option>
+                    <option value=2>P</option>
+                    <option value=3>K</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="cropSelector">Crop</label>
+                    <select id="cropSelector" ng-model="addSoilTstRsltMap.cropId" class="form-control">
+                        <option value="">Select Crop</option>
+                        <option value={{cropMap.cropId}} ng-repeat="cropMap in cropList">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stateSelector">State</label>
+                    <select id="stateSelector" ng-model="addSoilTstRsltMap.stateId" ng-change="stateChange(addSoilTstRsltMap.stateId)" class="form-control">
+                        <option value="">Select State</option>
+                        <option value={{stateMap.stateId}} ng-repeat="stateMap in stateList">{{stateMap.stateName}}</option>
+                    </select>
+                </div>
+                <!--                <div class="form-group" ng-show="addSoilTstRsltMap.isApplyToAllDists==0">-->
+                <div class="form-group">
+                    <div class="radio" ng-init="addSoilTstRsltMap.isRfOrIrr=-1">
+                        <div class="">
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="rainfed" value=0>
+                                    Rainfed
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="irrigated" value=1>
+                                    Irrigated
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="none" value=-1>
+                                    none
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="addSoilTstRsltMap.isApplyToAllDists==0">
+                    <label for="districtSelector">District</label>
+                    <select id="districtSelector" ng-model="addSoilTstRsltMap.districtId" class="form-control">
+                        <option value="">Select District</option>
+                        <option value="{{districtMap.districtId}}" ng-repeat="districtMap in districtList">{{districtMap.districtName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="soilTestResultInput">Soil Test Result</label>
+                    <input type="text" class="form-control" id="soilTestResultInput" ng-model="addSoilTstRsltMap.soilTestResult" placeholder="Soil Test Result">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mB20">
+            <button class="pull-right btn btn-default btn-info" ng-click="addSoilTstRslt(addSoilTstRsltMap)">Add Soil Test Result</button>
+        </div>
+    </div>
+
+</div>

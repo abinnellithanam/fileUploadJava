@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="cassApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <title>ccc App</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="view" class="cursorPointer"><a ng-href="#/view1">View</a></li>
+                    <li class="cursorPointer"><a ng-href="#/addYT">Add YT</a></li>
+                    <li class="cursorPointer"><a ng-href="#/addSoilTestResult">Add STR</a></li>
+                    <li class="cursorPointer"><a ng-href="#/addFertilizerRecommendation">Add Fert Recomm</a></li>
+                    <li class="cursorPointer"><a ng-href="#/updateYT">Update YT</a></li>
+                    <li class="cursorPointer"><a ng-href="#/updateSoilTestResult">Update STR</a></li>
+                    <li class="cursorPointer"><a ng-href="#/updateFertilizerRecommendation">Update Fert Recomm</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ng-view></div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-css/angular-css.js"></script>
+    <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+    <script src="service/httpDataService.js"></script>
+    <script src="view/view.js"></script>
+    <script src="add/addYT.js"></script>
+    <script src="add/addSoilTestResult.js"></script>
+    <script src="add/addFertilizerRecommendation.js"></script>
+    <script src="update/updateYT.js"></script>
+    <script src="update/updateSoilTestResult.js"></script>
+    <script src="update/updateFertilizerRecommendation.js"></script>
+</body>
+
+</html>

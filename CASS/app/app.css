@@ -1,0 +1,60 @@
+.mT90{
+    margin-top: 90px;
+}
+.mB90{
+    margin-bottom: 90px;
+}
+.mL90{
+    margin-left: 90px;
+}
+.mR90{
+    margin-right: 90px;
+}
+.m90{
+    margin: 90px;
+}
+.mT20{
+    margin-top: 20px;
+}
+.mB20{
+    margin-bottom: 20px;
+}
+.mL20{
+    margin-left: 20px;
+}
+.mR20{
+    margin-right: 20px;
+}
+.m20{
+    margin: 20px;
+}
+.mR10{
+    margin-right: 10px;
+}
+.mL10{
+    margin-left: 10px;
+}
+.mT10{
+    margin-top: 10px;
+}
+.mB10{
+    margin-bottom: 10px;
+}
+.m10{
+    margin: 10px;
+}
+.divBorderGrey{
+    border: 1px solid grey;
+}
+.divPadding10{
+    padding: 10px;
+}
+.tableBackground:hover{
+     background: #ddccd2 !important;   
+}
+.tableBackground{
+     background: #313a44;   
+}
+.cursorPointer{
+    cursor: pointer;
+}

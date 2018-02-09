@@ -1,0 +1,442 @@
+<div class="container mT90" id="loader-cccc" style="margin-bottom:65px;">
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead"><u>Crops</u></p>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>#</th>
+                        <th>Crop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cropMap in cropList">
+                        <td>{{$index+1}}</td>
+                        <td>{{cropMap.cropId}}</td>
+                        <td>{{cropMap.cropName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead"><u>States</u></p>
+            <div class="row pull-right">
+
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stateMap in stateList">
+                            <td>{{$index+1}}</td>
+                            <td>{{stateMap.stateId}}</td>
+                            <td>{{stateMap.stateName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead"><u>Districts</u></p>
+            <div class="row pull-right mB20">
+                <select class="form-control" ng-model="viewDistricts.stateId" ng-change="viewDistricts.stateChange(viewDistricts.stateId)">
+                        <option value="">select state</option>
+                        <option ng-repeat="stateMap in stateList" value="{{stateMap.stateId}}">{{stateMap.stateName}}</option>
+                    </select>
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>District</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="districtMap in viewDistricts.districtList">
+                            <td>{{$index+1}}</td>
+                            <td>{{districtMap.districtId}}</td>
+                            <td>{{districtMap.districtName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <p class="lead col-md-6"><u>Yield Target</u></p>
+                <div class="form-group col-md-12">
+                    <div class="radio col-md-6" ng-init="viewYieldTarget.isApplyToAllDists='0'">
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewYieldTarget.isApplyToAllDists" ng-change="viewYieldTargetList.rbtnIsApplyToAllDistsChange(viewYieldTarget)" id="selectedDistricts" value="0">
+                        Selected Districts Only
+                        </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewYieldTarget.isApplyToAllDists" ng-change="viewYieldTargetList.rbtnIsApplyToAllDistsChange(viewYieldTarget)" id="allDistricts" value="1">
+                        All Districts
+                        </label>
+                    </div>
+                    <div class="radio col-md-6" ng-init="viewYieldTarget.isRfOrIrr='0'">
+                        <!--                        <div class="">-->
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewYieldTarget.isRfOrIrr" id="rainfed" value="0">
+                        Rainfed
+                        </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewYieldTarget.isRfOrIrr" id="irrigated" value="1">
+                        Irrigated
+                        </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewYieldTarget.isRfOrIrr" id="none" value="-1">
+                        none
+                        </label>
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mB20">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+                    <label>Crop</label>
+                    <select class="form-control" ng-model="viewYieldTarget.cropId" ng-change="viewYieldTargetList.cropChange(viewYieldTarget)">
+                        <option value="">select Crop</option>
+                        <option ng-repeat="cropMap in cropList" value="{{cropMap.cropId}}">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>State</label>
+                    <select class="form-control" ng-model="viewYieldTarget.stateId" ng-change="viewYieldTargetList.stateChange(viewYieldTarget)">
+                        <option value="">select state</option>
+                        <option ng-repeat="stateMap in stateList" value="{{stateMap.stateId}}">{{stateMap.stateName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3" ng-show="viewYieldTarget.isApplyToAllDists==0">
+                    <label>District</label>
+                    <select class="form-control" ng-model="viewYieldTarget.districtId" ng-change="viewYieldTargetList.districtChange(viewYieldTarget)">
+                        <option value="">select District</option>
+                        <option ng-repeat="districtMap in viewYieldTargetList.districtList" value="{{districtMap.districtId}}">{{districtMap.districtName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>YieldTarget</th>
+                            <th>rfIrrStateId</th>
+                            <th>State</th>
+                            <th>Crop</th>
+                            <th>District</th>
+                            <th>Have Soil Test Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="yieldTargetMap in viewYieldTarget.yieldTargetList">
+                            <td>{{$index+1}}</td>
+                            <td>{{yieldTargetMap.yieldTargetId}}</td>
+                            <td>{{yieldTargetMap.yieldTarget}}</td>
+                            <td>{{yieldTargetMap.rfIrrStateId}}</td>
+                            <td>{{yieldTargetMap.stateName}}</td>
+                            <td>{{yieldTargetMap.cropName}}</td>
+                            <td>{{yieldTargetMap.districtName}}</td>
+                            <td>{{yieldTargetMap.haveSoilTestResult}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <p class="lead col-md-6"><u>Soil Test Result</u></p>
+                <div class="form-group col-md-12">
+                    <div class="radio col-md-6" ng-init="viewSoilTestResult.isApplyToAllDists=0">
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewSoilTestResult.isApplyToAllDists" ng-change="viewSoilTestResultList.rbtnIsApplyToAllDistsChange(viewSoilTestResult)" id="selectedDistricts" value="0">
+                        Selected Districts Only
+                    </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewSoilTestResult.isApplyToAllDists" ng-change="viewSoilTestResultList.rbtnIsApplyToAllDistsChange(viewSoilTestResult)" id="allDistricts" value="1">
+                        All Districts
+                    </label>
+                    </div>
+                    <div class="radio col-md-6" ng-init="viewSoilTestResult.isRfOrIrr='0'">
+                        <!--                        <div class="">-->
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewSoilTestResult.isRfOrIrr" id="rainfed" value="0">
+                        Rainfed
+                        </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewSoilTestResult.isRfOrIrr" id="irrigated" value="1">
+                        Irrigated
+                        </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewSoilTestResult.isRfOrIrr" id="none" value="-1">
+                        none
+                        </label>
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mB20">
+                <div class="col-md-3">
+                    <label>Fertilizer Type</label>
+                    <select ng-model="viewSoilTestResult.sFertTypeId" ng-change="viewSoilTestResultList.sFertTypeChange(viewSoilTestResult)" class="form-control">
+                        <option value=1>Organic Carbon</option>
+                        <option value=2>P</option>
+                        <option value=3>K</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>Crop</label>
+                    <select class="form-control" ng-model="viewSoilTestResult.cropId" ng-change="viewSoilTestResultList.cropChange(viewSoilTestResult)">
+                        <option value="">select Crop</option>
+                        <option ng-repeat="cropMap in cropList" value="{{cropMap.cropId}}">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>State</label>
+                    <select class="form-control" ng-model="viewSoilTestResult.stateId" ng-change="viewSoilTestResultList.stateChange(viewSoilTestResult)">
+                        <option value="">select state</option>
+                        <option ng-repeat="stateMap in stateList" value="{{stateMap.stateId}}">{{stateMap.stateName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3" ng-show="viewSoilTestResult.isApplyToAllDists==0">
+                    <label>District</label>
+                    <select class="form-control" ng-model="viewSoilTestResult.districtId" ng-change="viewSoilTestResultList.districtChange(viewSoilTestResult)">
+                        <option value="">select District</option>
+                        <option ng-repeat="districtMap in viewSoilTestResult.districtList" value="{{districtMap.districtId}}">{{districtMap.districtName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>Soil Test Result</th>
+                            <th>rfIrrStateId</th>
+                            <th>Fert Type</th>
+                            <th>State</th>
+                            <th>Crop</th>
+                            <th>District</th>
+                            <th>Have Soil Test Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="soilTestResultMap in viewSoilTestResult.viewSoilTestResultList">
+                            <td>{{$index+1}}</td>
+                            <td>{{soilTestResultMap.soilTestResultId}}</td>
+                            <td>{{soilTestResultMap.soilTestResult}}</td>
+                            <td>{{soilTestResultMap.rfIrrStateId}}</td>
+                            <td>{{viewSoilTestResult.sFertTypeId}}</td>
+                            <td>{{soilTestResultMap.stateName}}</td>
+                            <td>{{soilTestResultMap.cropName}}</td>
+                            <td>{{soilTestResultMap.districtName}}</td>
+                            <td>{{soilTestResultMap.haveSoilTestResult}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <p class="lead col-md-6"><u>Fertilizer Recommendation chart</u></p>
+                <div class="form-group col-md-6">
+                    <div class="radio" ng-init="viewFertRecomm.isRfOrIrr=0">
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewFertRecomm.isRfOrIrr" ng-change="viewFertRecommChart.rbtnIsRfOrIrrChange(viewFertRecomm)" id="selectedDistricts" value="0">
+                        Rainfed
+                    </label>
+                        <label class="mR20">
+                        <input type="radio" ng-model="viewFertRecomm.isRfOrIrr"  ng-change="viewFertRecommChart.rbtnIsRfOrIrrChange(viewFertRecomm)" id="allDistricts" value="1">
+                        Irrigated
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="viewFertRecomm.isRfOrIrr"  ng-change="viewFertRecommChart.rbtnIsRfOrIrrChange(viewFertRecomm)" id="allDistricts" value="-1">
+                        None
+                    </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mB20">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+                    <label>Crop</label>
+                    <select class="form-control" ng-model="viewFertRecomm.cropId" ng-change="viewFertRecommChart.cropChange(viewFertRecomm)">
+                        <option value="">select Crop</option>
+                        <option ng-repeat="cropMap in cropList" value="{{cropMap.cropId}}">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>State</label>
+                    <select class="form-control" ng-model="viewFertRecomm.stateId" ng-change="viewFertRecommChart.stateChange(viewFertRecomm)">>
+                        <option value="">select state</option>
+                        <option ng-repeat="stateMap in stateList" value="{{stateMap.stateId}}">{{stateMap.stateName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3" ng-show="viewFertRecomm.rbtnToApplyAllDists==0">
+                    <label>District</label>
+                    <select class="form-control">
+                        <option value="">select District</option>
+                        <option ng-repeat="districtMap in viewFertRecommChart.districtList" value="{{districtMap.districtId}}">{{districtMap.districtName}}</option>
+                    </select>
+                </div>
+            </div>
+            <!--            -->
+            <div class="row" ng-repeat="fertRecommMap in fertRecommList">
+                <label>{{fertRecommMap.districtName}}</label>
+                <label>{{fertRecommMap.districtId}}</label>
+                <table class="table table-bordered table-hover tableBackground">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">OC</th>
+                                            <th colspan="4" class="text-center">YT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="x in fertRecommMap.fertRecommOc">
+                                            <td>{{x.p1}}</td>
+                                            <td>{{x.p2}}</td>
+                                            <td>{{x.p3}}</td>
+                                            <td>{{x.p4}}</td>
+                                            <td>{{x.p5}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">P</th>
+                                            <th colspan="4" class="text-center">YT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="fertRecommP in fertRecommMap.fertRecommP">
+                                            <td>{{fertRecommP.p1}}</td>
+                                            <td>{{fertRecommP.p2}}</td>
+                                            <td>{{fertRecommP.p3}}</td>
+                                            <td>{{fertRecommP.p4}}</td>
+                                            <td>{{fertRecommP.p5}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">K</th>
+                                            <th colspan="4" class="text-center">YT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="fertRecommK in fertRecommMap.fertRecommK">
+                                            <td>{{fertRecommK.p1}}</td>
+                                            <td>{{fertRecommK.p2}}</td>
+                                            <td>{{fertRecommK.p3}}</td>
+                                            <td>{{fertRecommK.p4}}</td>
+                                            <td>{{fertRecommK.p5}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+ <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <p class="lead col-md-6"><u>Micro Fertilizer Recommendation</u></p>
+            </div>
+            <div class="col-md-12 mB20">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+                    <label>Crop</label>
+                    <select class="form-control" ng-model="viewMFertList.cropId" ng-change="viewMFert.cropChange(viewMFertList.cropId)">
+                        <option value="">select Crop</option>
+                        <option ng-repeat="cropMap in cropList" value="{{cropMap.cropId}}">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+            <div class="row" ng-repeat="mFertRecomStateMap in mFertRecomStatesList">
+               <label>{{mFertRecomStateMap.stateName}} : {{mFertRecomStateMap.stateId}}</label>
+               <label ng-if="mFertRecomStateMap.isRforIrr == 1">Rainfed</label>
+               <label ng-if="mFertRecomStateMap.isRforIrr == 0">Irrigated</label>
+               <label ng-if="mFertRecomStateMap.isRforIrr == -1">None</label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>YieldTarget</th>
+                            <th>rfIrrStateId</th>
+                            <th>State</th>
+                            <th>Crop</th>
+                            <th>District</th>
+                            <th>Have Soil Test Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="yieldTargetMap in viewYieldTarget.yieldTargetList">
+                            <td>{{$index+1}}</td>
+                            <td>{{yieldTargetMap.yieldTargetId}}</td>
+                            <td>{{yieldTargetMap.yieldTarget}}</td>
+                            <td>{{yieldTargetMap.rfIrrStateId}}</td>
+                            <td>{{yieldTargetMap.stateName}}</td>
+                            <td>{{yieldTargetMap.cropName}}</td>
+                            <td>{{yieldTargetMap.districtName}}</td>
+                            <td>{{yieldTargetMap.haveSoilTestResult}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

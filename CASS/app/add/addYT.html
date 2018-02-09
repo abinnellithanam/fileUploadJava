@@ -1,0 +1,244 @@
+<div class="container mT90" id="loader-cccc">
+   
+   
+   
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead col-md-6"><u>Add Yield Target</u></p>
+            <div class="form-group col-md-6">
+                <div class="radio" ng-init="addYTMap.isApplyToAllDists=0">
+                    <label class="mR20">
+                        <input type="radio" ng-model="addYTMap.isApplyToAllDists" id="selectedDistricts" value=0 checked>
+                        Selected Districts Only
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="addYTMap.isApplyToAllDists" id="allDistricts" value=1>
+                        All Districts
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mB20">
+            <form>
+                <div class="form-group">
+                    <label for="stateSelector">State</label>
+                    <select id="stateSelector" ng-model="addYTMap.stateId" ng-change="stateChange(addYTMap.stateId)" class="form-control">
+                    <option value="">Select State</option>
+                    <option ng-repeat="stateMap in stateList" value={{stateMap.stateId}}>{{stateMap.stateName}}</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="cropSelector">Crop</label>
+                    <select id="cropSelector" ng-model="addYTMap.cropId" class="form-control">
+                        <option value="">Select Crop</option>
+                        <option value={{cropMap.cropId}} ng-repeat="cropMap in cropList">{{cropMap.cropName}}</option>
+                    </select>
+                </div>
+                <!--                <div class="form-group" ng-show="addYTMap.isApplyToAllDists==0">-->
+                <div class="form-group">
+                    <div class="radio" ng-init='addYTMap.isRfOrIrr=-1' \>
+                        <div class="">
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addYTMap.isRfOrIrr" id="rainfed" value=0>
+                                    Rainfed
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addYTMap.isRfOrIrr" id="irrigated" value=1>
+                                    Irrigated
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addYTMap.isRfOrIrr" id="none" value=-1>
+                                    none
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="addYTMap.isApplyToAllDists==0">
+                    <label for="districtSelector">District</label>
+                    <select id="districtSelector" ng-model="addYTMap.districtId" class="form-control">
+                        <option value="">Select District</option>
+                        <option value={{districtMap.districtId}} ng-repeat="districtMap in districtList">{{districtMap.districtName}}</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="yieldTargetInput">Yield Target</label>
+                    <input type="number" class="form-control" id="yieldTargetInput" ng-model="addYTMap.yieldTarget" placeholder="Yield Target">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mB20">
+            <button class="pull-right btn btn-default btn-info" ng-click="addYT(addYTMap)">Add Yield Target</button>
+        </div>
+
+    </div>
+    
+    
+    
+<!--
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead col-md-6"><u>Add Soil Test Result</u></p>
+            <div class="form-group col-md-6">
+                <div class="radio" ng-init="addSoilTstRsltMap.isApplyToAllDists=0">
+                    <label class="mR20">
+                        <input type="radio" ng-model="addSoilTstRsltMap.isApplyToAllDists" id="selectedDistricts" value="0" checked>
+                        Selected Districts Only
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="addSoilTstRsltMap.isApplyToAllDists" id="allDistricts" value="1">
+                        All Districts
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mB20">
+            <form>
+                <div class="form-group">
+                    <label for="fertTypeSelector">Fertilizer Type</label>
+                    <select id="fertTypeSelector" class="form-control">
+                    <option value="1">Organic Carbon</option>
+                    <option value="2">P</option>
+                    <option value="3">K</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="cropSelector">Crop</label>
+                    <select id="cropSelector" class="form-control">
+                        <option>Crop</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stateSelector">State</label>
+                    <select id="stateSelector" class="form-control">
+                        <option>State</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="radio" ng-init="addSoilTstRsltMap.isRfOrIrr=-1">
+                        <div class="">
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="rainfed" value="0">
+                                    Rainfed
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="irrigated" value="1">
+                                    Irrigated
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addSoilTstRsltMap.isRfOrIrr" id="none" value="-1">
+                                    none
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="addSoilTstRsltMap.isApplyToAllDists==0">
+                    <label for="districtSelector">District</label>
+                    <select id="districtSelector" class="form-control">
+                    <option>District</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="soilTestResultInput">Soil Test Result</label>
+                    <input type="text" class="form-control" id="soilTestResultInput" ng-model="addSoilTstRsltMap.soilTestResult" placeholder="Soil Test Result">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mB20">
+            <button class="pull-right btn btn-default btn-info" ng-click="addSoilTstRslt()">Add Soil Test Result</button>
+        </div>
+    </div>
+-->
+
+   
+   
+   
+<!--
+    <div class="row mT20 divBorderGrey divPadding10">
+        <div class="col-md-12">
+            <p class="lead col-md-6"><u>Add Fertilizer Recommendation</u></p>
+            <div class="form-group col-md-6">
+                <div class="radio" ng-init="addFertRecommMap.isApplyToAllDists=0">
+                    <label class="mR20">
+                        <input type="radio" ng-model="addFertRecommMap.isApplyToAllDists" id="selectedDistricts" value="0" checked>
+                        Selected Districts Only
+                    </label>
+                    <label class="mR20">
+                        <input type="radio" ng-model="addFertRecommMap.isApplyToAllDists" id="allDistricts" value="1">
+                        All Districts
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mB20">
+            <form>
+                <div class="form-group">
+                    <label for="fertTypeSelector">Fertilizer Type</label>
+                    <select id="fertTypeSelector" class="form-control">
+                    <option value="1">Organic Carbon</option>
+                    <option value="2">P</option>
+                    <option value="3">K</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="cropSelector">Crop</label>
+                    <select id="cropSelector" class="form-control">
+                        <option>Crop</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stateSelector">State</label>
+                    <select id="stateSelector" class="form-control">
+                        <option>State</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="radio" ng-init="addFertRecommMap.isRfOrIrr=-1">
+                        <div class="">
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="rainfed" value="0">
+                                    Rainfed
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="irrigated" value="1">
+                                    Irrigated
+                                </label>
+                            <label class="mR20">
+                                    <input type="radio" ng-model="addFertRecommMap.isRfOrIrr" id="none" value="-1">
+                                    none
+                                </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="addFertRecommMap.isApplyToAllDists==0">
+                    <label for="districtSelector">District</label>
+                    <select id="districtSelector" class="form-control">
+                    <option>District</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="yieldTargetSelector">Yield Target</label>
+                    <select id="yieldTargetSelector" class="form-control">
+                    <option>Yield Target</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="soilTestRsltSelector">Soil Test Result</label>
+                    <select id="soilTestRsltSelector" class="form-control">
+                    <option>Soil Test Result</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="fertRecommInput">Fertilizer Recommendation</label>
+                    <input type="text" class="form-control" id="fertRecommInput" ng-model="addFertRecommMap.fertRecomm" placeholder="Fertilizer Recommendation">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mB20">
+            <button class="pull-right btn btn-default btn-info" ng-click="addSoilTstRslt()">Fertilizer Recommendation</button>
+        </div>
+    </div>
+-->
+    
+    
+    
+</div>

@@ -1,0 +1,461 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12 text-center" style="height: 10vh;background: #2167a0;">
+            <label class="playFont" style="font-size:30px;line-height: 10vh;color: #fff;">MINTOVA</label>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="adminAccountPageViewController">
+        <div class="col-md-8 col-md-offset-2 topMargin5">
+            <ul class="nav nav-tabs">
+                <li ng-class="{active: selectedTab == 1}">
+                    <a ng-click="selectedTab = 1;">Basic Profile</a>
+                </li>
+                <li ng-class="{active: selectedTab == 2}">
+                    <a ng-click="selectedTab = 2;">Documents</a>
+                </li>
+                <li ng-class="{active: selectedTab == 3}">
+                    <a ng-click="selectedTab = 3;">Forms</a>
+                </li>
+                <li ng-class="{active: selectedTab == 4}">
+                    <a ng-click="selectedTab = 4;">People</a>
+                </li>
+
+                <li ng-class="{active: selectedTab == 5}">
+                    <a ng-click="selectedTab = 5;">Tasks</a>
+                </li>
+
+                <li ng-class="{active: selectedTab == 6}">
+                    <a ng-click="selectedTab = 6;">Remainder</a>
+                </li>
+            </ul>
+
+
+            <div class="tab-content">
+                <div ng-show="selectedTab == 1" ng-controller="accountDetailsController">
+                    <h3>Basic Profile</h3>
+                    <!--        #########################            -->
+
+
+                    <div class="row accBasicProfile">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Account Name  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.accName}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Account Type  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.accTpe}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Date of Inc.  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.dateInc}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">PAN  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.panNo}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">CIN  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.cinNo}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Ser Tax Id  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.serTaxId}}</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Country of Regn.  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.countryRegn}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Office Contact#  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.officeCntct}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Address#1  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.add1}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">Address#2  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.add2}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">City  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.city}}</label>
+                                            </div>
+                                        </form>
+                                        <form class="form-inline">
+                                            <div class="col-md-4">
+                                                <label class="pull-right">State  : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="pull-left">{{accountDetails.state}}</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="">
+                                    <button class="btn btn-info pull-right" ng-click="accountEdit(accountDetails)" type="button">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--        #########################            -->
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div ng-show="selectedTab == 2" ng-controller="accountDocumentsController">
+                    <h3>Documents</h3>
+                    <!-------------------------------------------------->
+                    <div class="row">
+                        <div class="col-md-6 pull-left test"></div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="row margin-top10">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Document Name</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="documentInfo in documentsInfos">
+                                    <td>{{documentInfo.docId}}</td>
+                                    <td>
+                                        <div class="col-md-12"><b>{{documentInfo.docTitle}}</b></div>
+                                        <div class="col-md-12">
+                                            <span class="label label-primary">{{documentInfo.financialYear}}</span>
+                                        </div>
+                                    </td>
+                                    <td>Shan</td>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <a href="#" class="col-md-12 pull-left">PDF</a>
+                                                <a class="col-md-12 pull-left cursorPointer" data-toggle="modal" ng-click="docEdit(documentInfo.docId)">Edit</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="col-md-12 pull-left cursorPointer" data-toggle="modal" data-target="#addRevisions">New revision</a>
+                                                <a class="col-md-12 pull-left cursorPointer" data-toggle="modal" data-target="#viewAllRevisions">All revision</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <button class="btn btn-info pull-right" data-toggle="modal" data-target="#addDocument" type="button">Add New Document</button>
+                        </div>
+                    </div>
+                    <!-------------------------------------------------------->
+
+                    <div id="editDocument" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><u>Update Document</u></h4>
+                                    <span class="label label-primary">{{documentDetails.createdUsersFname}}&nbsp;{{documentDetails.createdUsersFnameLname}}</span>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-4">
+                                                <label>Document title</label>
+                                                <input type="text" placeholder="Document title" class="form-control" ng-model="documentDetails.docTitle" required autofocus>
+                                                <label>Group</label>
+                                                <select class="form-control" ng-options="id as name for (id, name) in docGroups" ng-model="documentDetails.grpId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.docGrpId">
+                                                    <option value="{{docGroup.docGrpId}}" ng-repeat="docGroup in docGroups">{{docGroup.docGrpName}}</option>
+                                                </select>
+-->
+                                                <label>Type</label>
+                                                <select class="form-control" ng-options="id as name for (id, name) in docTypes" ng-model="documentDetails.docTpeId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.docTypeId">
+                                                    <option value="{{docType.docTypeId}}" ng-repeat="docType in docTypes">{{docType.docType}}</option>
+                                                </select>
+-->
+                                                <label>Security Level</label>
+                                                <select class="form-control" ng-options="id as name for (id, name) in secLevel" ng-model="documentDetails.securityLevel"></select>
+                                                <!--
+                                                <select class="form-control" id="secLevel" ng-model="documentDetails.securityLevel">
+                                                    <option value="1">High</option>
+                                                    <option value="2">Medium</option>
+                                                    <option value="3">Low</option>
+                                                </select>
+-->
+                                                <label>Financial year</label>
+                                                 <select class="form-control" ng-options="id as name for (id, name) in financialYears" ng-model="documentDetails.finYearId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.finYearId">
+                                                    <option value="{{financialYear.finYearId}}" ng-repeat="financialYear in financialYears">{{financialYear.finYear}}</option>
+                                                </select>
+-->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Notes</label>
+                                                <textarea class="form-control" placeholder="Notes" ng-model="documentDetails.nNotes" rows="6"></textarea>
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" ng-click="updateDocument()">Update</button>
+                                    <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!------------------------------------------------------->
+                    <div id="addDocument" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><u>Add Document</u></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-4">
+                                                <label>Document title</label>
+                                                <input type="text" placeholder="Document title" class="form-control" ng-model="documentMap.docName" required autofocus>
+                                                <label>Group</label>
+                                                 <select class="form-control" ng-options="id as name for (id, name) in docGroups" ng-model="documentMap.docGrpId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.docGrpId">
+                                                    <option value="{{docGroup.docGrpId}}" ng-repeat="docGroup in docGroups">{{docGroup.docGrpName}}</option>
+                                                </select>
+-->
+                                                <label>Type</label>
+                                                 <select class="form-control" ng-options="id as name for (id, name) in docTypes" ng-model="documentMap.docTypeId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.docTypeId">
+                                                    <option value="{{docType.docTypeId}}" ng-repeat="docType in docTypes">{{docType.docType}}</option>
+                                                </select>
+-->
+                                               
+                                                <label>Security Level</label>
+                                                <select class="form-control" ng-model="documentMap.securityLevel">
+                                                    <option value="1">High</option>
+                                                    <option value="2">Medium</option>
+                                                    <option value="3">Low</option>
+                                                </select>
+                                                <!--                                                <input type="text" placeholder="Security Level" class="form-control" ng-model="accountDetails.panNo" required autofocus>-->
+                                                <!--
+                                                <label>Created Date</label>
+                                                <input type="text" placeholder="Created Date" ng-model="accountDetails.cinNo" class="form-control" required autofocus> -->
+                                                <label>Financial year</label>
+                                                <select class="form-control" ng-options="id as name for (id, name) in financialYears" ng-model="documentMap.finYearId"></select>
+<!--
+                                                <select class="form-control" ng-model="documentMap.finYearId">
+                                                    <option value="{{financialYear.finYearId}}" ng-repeat="financialYear in financialYears">{{financialYear.finYear}}</option>
+                                                </select>
+-->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <!--
+<label>Account</label>
+<input type="text" placeholder="Account" ng-model="accountDetails.officeCntct" class="form-control" required>
+-->
+                                                <label>Notes</label>
+                                                <textarea class="form-control" placeholder="Notes" ng-model="documentMap.notes" rows="6"></textarea>
+                                                <label>Upload</label>
+                                                <input type="file" id="fileInput" class="form-control" fd-input>
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" ng-click="addDocument()">Save</button>
+                                    <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-------------------------------------------------->
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div ng-show="selectedTab == 3">
+                    <h3>Form</h3>
+                    <p>Some content.</p>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div ng-show="selectedTab == 4">
+                    <ul class="nav nav-pills">
+                        <li ng-class="{active: selectedPill == 1}">
+                            <a ng-click="selectedPill = 1;">Basic Profile</a>
+                        </li>
+                        <li ng-class="{active: selectedPill == 2}">
+                            <a ng-click="selectedPill = 2;">Documents</a>
+                        </li>
+                        <li ng-class="{active: selectedPill == 3}">
+                            <a ng-click="selectedPill = 3;">Associated Accounts</a>
+                        </li>
+                        <li ng-class="{active: selectedPill == 4}">
+                            <a ng-click="selectedPill = 3;">New Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div ng-show="selectedPill == 1">
+                            <h2>Basic Profile</h2>
+                            <table ng-table="tableParams" class="table" show-filter="true">
+                                <tr ng-repeat="user in $data">
+                                    <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                                        {{user.name}}</td>
+                                    <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
+                                        {{user.age}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div ng-show="selectedPill == 2">
+                            Documents
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div ng-show="selectedPill == 3">
+                            Associated Accounts
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div ng-show="selectedPill == 4">
+                            <form name="newAccountForm" novalidate ng-submit="addNewContact(newAccountForm)">
+                                <div class="col-md-4">
+                                    <label>First Name</label>
+                                    <input type="text" name="fname" ng-class="class" class="form-control" ng-model="first_name" placeholder="First Name" required>
+                                    <label>Second Name</label>
+                                    <input type="text" name="lname" ng-class="class" class="form-control" ng-model="second_name" placeholder="Last Name" required>
+                                    <label>Pan Number</label>
+                                    <input type="text" name="pan" ng-class="class" class="form-control" ng-model="pan_no" placeholder="Pan Number" required>
+                                    <label>Aadhar Number</label>
+                                    <input type="text" name="aadhar" ng-class="class" class="form-control" ng-model="aadhar_no" placeholder="Aadhar Number" required>
+                                    <label>Din Number</label>
+                                    <input type="text" name="din" ng-class="class" class="form-control" ng-model="din_no" placeholder="Din Number" required>
+
+                                    <label>City</label>
+                                    <input type="text" name="city" ng-class="class" class="form-control" ng-model="city" placeholder="City" required>
+                                    <label>Date of Birth</label>
+                                    <datepicker date-format="dd/MM/yyyy">
+                                        <input name="date" ng-class="class" ng-model="date" class="form-control" type="text" placeholder="Date of Birth" required>
+                                    </datepicker>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Nationality</label>
+                                    <input type="text" name="nationality" ng-class="class" class="form-control" ng-model="nationality" placeholder="Nationality" required>
+                                    <label>State</label>
+                                    <input type="text" name="" ng-class="class" class="form-control" ng-model="state" placeholder="state" required>
+                                    <label>Address #1</label>
+                                    <input type="text" name="" class="form-control" ng-class="class" ng-model="address_one" placeholder="Address 1" required>
+                                    <label>Address #2</label>
+                                    <input type="text" name="" ng-class="class" class="form-control" ng-class="{invalidField:!address_two.length,validField:address_two.length}" ng-model="address_two" placeholder="Address 2" required>
+                                    <label>Contact No</label>
+                                    <input type="number" name="" ng-class="class" class="form-control" ng-class="{invalidField:!mobile_number.length,validField:mobile_number.length}" ng-model="mobile_number" placeholder="Mobile Number" ng-minlength="10" ng-maxlength="10" required>
+                                    <label>Notes</label>
+                                    <textarea type="text" name="" class="form-control" ng-class="class" ng-model="notes" placeholder="Notes" required></textarea>
+                                    <br>
+                                    <input class="btn btn-info" style="width:100%;" type="submit">
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div ng-show="selectedTab == 5">
+                    <h3>Tasks</h3>
+                    <p>Some content.</p>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div ng-show="selectedTab == 6">
+                    <h3>Remainder</h3>
+                    <p>Some content.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

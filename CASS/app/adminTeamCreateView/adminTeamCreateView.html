@@ -1,0 +1,35 @@
+<div class="container-fluid playFont">
+    <div class="row">
+      <div class="col-md-12 text-center" style="height: 10vh;background: #2167a0;">
+            <label class="playFont" style="font-size:30px;line-height: 10vh;color: #fff;">MINTOVA</label>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-xs-4"></div>
+      
+        <div class="col-xs-4">
+            <div class="col-md-12" style="color: #2167a0;margin-top: 50px">
+                <!-- <div class="row" style="margin-top: 50px;margin-bottom: 50px;">
+
+                    <div class="col-md-12 text-center" style="color: #2167a0;font-size: 20px;">
+                        <label></label>
+                    </div>
+                   
+                </div> -->
+                 <form>
+                     <label>Email</label><input class="form-control" type="text" ng-model="email" name="email" placeholder="Email">
+                     <label>First Name</label><input class="form-control" type="text" ng-model="fname" name="fname" placeholder="First name">
+                     <label>Last Name</label><input class="form-control" type="text" ng-model="lname" name="lastname" placeholder="last Name">
+                     <label>Password</label><input class="form-control" type="password" ng-model="password" name="password" placeholder="password"><br>
+                     <button ng-if="tag" class="btn btn-info" style="width: 100%;background: #2167a0;" ng-click="updateusers(userId)">UPDATE</button>
+                     <button ng-if="!tag" class="btn btn-info" style="width: 100%;background: #2167a0;" ng-click="addusers()">ADD NEW TEAM MEMBER</button>
+                      <a style="margin-top: 20px;width: 100%;background: #2167a0;" ng-href="#/adminView" class="btn btn-info" >BACK</a>
+                </form>
+                <br><br>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+
+    </div>
+   
+</div>

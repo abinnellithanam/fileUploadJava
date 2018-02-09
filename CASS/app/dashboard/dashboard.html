@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center" style="height: 10vh;background: #2167a0;">
+            <label class="playFont" style="font-size:30px;line-height: 10vh;color: #fff;">MINTOVA</label>
+            <label class="pull-right" style="line-height: 10vh;cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;" ng-click="logout()">Logout</label>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-12 playFont center-block">
+            <div class="col-md-3">
+                <div class="tile text-center" ng-click="navigateToAccount()">
+                    <label style="line-height: 17vh;color: #2167a0; cursor: pointer;">Account</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="tile text-center" ng-click="navigateToTeam()">
+                    <label style="line-height: 17vh;color: #2167a0;cursor: pointer;">Team</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="tile text-center" ng-href="#/activitylogView">
+                    <label style="line-height: 17vh;color: #2167a0;cursor: pointer;">Activity Log</label>
+                </div>
+            </div>
+            <!--            <a ng-href="#/activitylogView"><label  style="cursor:pointer;color:#fff;text-transform: uppercase;background: #2167a0;padding: 10px;">View Activity Log</label></a>-->
+        </div>
+    </div>
+</div>
